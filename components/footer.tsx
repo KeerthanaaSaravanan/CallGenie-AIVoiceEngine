@@ -1,5 +1,5 @@
-import Link from "next/link"
 import { Sparkles, Phone, Mail, MapPin } from "lucide-react"
+import { ScrollLink } from "./scroll-link"
 
 export function Footer() {
   return (
@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 lg:gap-12">
           {/* Brand Column */}
           <div className="col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-6">
+            <ScrollLink href="/" className="flex items-center gap-2 mb-6">
               <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center">
                 <Sparkles className="w-5 h-5 text-ink" />
               </div>
@@ -16,7 +16,7 @@ export function Footer() {
                 <span className="font-semibold text-foreground text-lg leading-tight">SalonAI</span>
                 <span className="text-xs text-primary font-medium -mt-0.5">VoiceEngine</span>
               </div>
-            </Link>
+            </ScrollLink>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs mb-6">
               Your 24/7 AI receptionist for calls and WhatsApp — built uniquely for your business.
             </p>
@@ -35,24 +35,24 @@ export function Footer() {
             <h4 className="font-semibold text-foreground mb-4">Product</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
-                <Link href="/features" className="hover:text-primary transition-colors">
+                <ScrollLink href="/features" className="hover:text-primary transition-colors">
                   Features
-                </Link>
+                </ScrollLink>
               </li>
               <li>
-                <Link href="/how-it-works" className="hover:text-primary transition-colors">
+                <ScrollLink href="/how-it-works" className="hover:text-primary transition-colors">
                   How it Works
-                </Link>
+                </ScrollLink>
               </li>
               <li>
-                <Link href="/pricing" className="hover:text-primary transition-colors">
+                <ScrollLink href="/pricing" className="hover:text-primary transition-colors">
                   Pricing
-                </Link>
+                </ScrollLink>
               </li>
               <li>
-                <Link href="/dashboard-tour" className="hover:text-primary transition-colors">
+                <ScrollLink href="/dashboard-tour" className="hover:text-primary transition-colors">
                   Dashboard Tour
-                </Link>
+                </ScrollLink>
               </li>
             </ul>
           </div>
@@ -62,24 +62,24 @@ export function Footer() {
             <h4 className="font-semibold text-foreground mb-4">Industries</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
-                <Link href="/industries#salons" className="hover:text-primary transition-colors">
+                <ScrollLink href="/industries#salons" className="hover:text-primary transition-colors">
                   Salons
-                </Link>
+                </ScrollLink>
               </li>
               <li>
-                <Link href="/industries#spas" className="hover:text-primary transition-colors">
+                <ScrollLink href="/industries#spas" className="hover:text-primary transition-colors">
                   Spas
-                </Link>
+                </ScrollLink>
               </li>
               <li>
-                <Link href="/industries#clinics" className="hover:text-primary transition-colors">
+                <ScrollLink href="/industries#clinics" className="hover:text-primary transition-colors">
                   Clinics
-                </Link>
+                </ScrollLink>
               </li>
               <li>
-                <Link href="/industries#other" className="hover:text-primary transition-colors">
+                <ScrollLink href="/industries#other" className="hover:text-primary transition-colors">
                   Other
-                </Link>
+                </ScrollLink>
               </li>
             </ul>
           </div>
@@ -89,24 +89,24 @@ export function Footer() {
             <h4 className="font-semibold text-foreground mb-4">Resources</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
-                <Link href="/resources" className="hover:text-primary transition-colors">
+                <ScrollLink href="/resources" className="hover:text-primary transition-colors">
                   FAQ
-                </Link>
+                </ScrollLink>
               </li>
               <li>
-                <Link href="/resources#docs" className="hover:text-primary transition-colors">
+                <ScrollLink href="/resources#getting-started" className="hover:text-primary transition-colors">
                   Documentation
-                </Link>
+                </ScrollLink>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-primary transition-colors">
+                <ScrollLink href="/contact" className="hover:text-primary transition-colors">
                   Support
-                </Link>
+                </ScrollLink>
               </li>
               <li>
-                <Link href="/demo" className="hover:text-primary transition-colors">
+                <ScrollLink href="/contact" className="hover:text-primary transition-colors">
                   Book Demo
-                </Link>
+                </ScrollLink>
               </li>
             </ul>
           </div>
@@ -137,12 +137,12 @@ export function Footer() {
         <div className="mt-16 pt-8 border-t border-border/30 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
             <span>© 2025 SalonAI VoiceEngine. All rights reserved.</span>
-            <Link href="/privacy" className="hover:text-primary transition-colors">
+            <ScrollLink href="/privacy" className="hover:text-primary transition-colors">
               Privacy Policy
-            </Link>
-            <Link href="/terms" className="hover:text-primary transition-colors">
+            </ScrollLink>
+            <ScrollLink href="/terms" className="hover:text-primary transition-colors">
               Terms of Service
-            </Link>
+            </ScrollLink>
           </div>
           <div className="flex items-center gap-3">
             <span className="text-xs text-muted-foreground">Powered by</span>

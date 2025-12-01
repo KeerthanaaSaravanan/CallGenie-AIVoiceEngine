@@ -1,4 +1,5 @@
-import { Brain, Calendar, Phone, MessageCircle, BarChart3, Users, Shield, CreditCard } from "lucide-react"
+import { Brain, Calendar, Phone, MessageCircle, BarChart3, Users, Shield, CreditCard, ArrowRight } from "lucide-react"
+import Link from "next/link"
 
 const features = [
   {
@@ -45,37 +46,54 @@ const features = [
 
 export function FeaturesGridSection() {
   return (
-    <section className="py-20 lg:py-32 bg-ink relative overflow-hidden">
+    <section className="py-24 lg:py-32 bg-ink relative overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
       </div>
 
       <div className="relative container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="text-sm font-medium text-primary mb-4 block">Features</span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4 text-balance">
-            Everything You Need to Automate
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark border border-white/10 mb-6">
+            <span className="text-sm font-medium text-white/90">Complete Platform</span>
+          </div>
+          <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
+            Everything You Need to <span className="gradient-text">Automate</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-white/60 max-w-2xl mx-auto">
             A complete AI receptionist platform with powerful tools for every aspect of customer communication.
           </p>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="glass-dark rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300 group"
+              className="group glass-dark rounded-2xl p-6 card-hover border border-white/10 relative overflow-hidden"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <feature.icon className="w-6 h-6 text-primary" />
+              {/* Hover gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                  <feature.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
+                <p className="text-sm text-white/50 leading-relaxed">{feature.description}</p>
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">{feature.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link
+            href="/features"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-dark border border-white/10 text-white font-medium hover:bg-white/10 transition-colors group"
+          >
+            Explore All Features
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </div>
     </section>

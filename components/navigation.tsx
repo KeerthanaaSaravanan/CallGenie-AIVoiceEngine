@@ -1,10 +1,10 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Phone, Sparkles } from "lucide-react"
+import { Menu, X, Sparkles } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { ScrollLink } from "./scroll-link"
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -26,94 +26,122 @@ export function Navigation() {
     { href: "/resources", label: "Resources" },
   ]
 
+  const closeMobileMenu = () => setIsMobileMenuOpen(false)
+
   return (
     <>
       <nav
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          isScrolled ? "glass-dark py-3" : "bg-transparent py-5",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out",
+          isScrolled ? "glass-nav-scrolled py-3" : "glass-nav py-4",
         )}
       >
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-ink" />
+            <ScrollLink href="/" className="flex items-center gap-3 group" onClick={closeMobileMenu}>
+              <div className="relative w-10 h-10 rounded-xl gradient-primary flex items-center justify-center overflow-hidden">
+                <Sparkles className="w-5 h-5 text-ink relative z-10" />
+                <div className="absolute inset-0 animate-shimmer" />
               </div>
               <div className="flex flex-col">
-                <span className="font-semibold text-foreground text-lg leading-tight">SalonAI</span>
-                <span className="text-xs text-primary font-medium -mt-0.5">VoiceEngine</span>
+                <span className="font-bold text-white text-lg leading-tight tracking-tight">SalonAI</span>
+                <span className="text-xs text-primary font-medium -mt-0.5 tracking-wide">VoiceEngine</span>
               </div>
-            </Link>
+            </ScrollLink>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => (
-                <Link
+                <ScrollLink
                   key={link.href}
                   href={link.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium"
+                  className="relative px-4 py-2 text-white/70 hover:text-white transition-colors text-sm font-medium rounded-lg hover:bg-white/5"
                 >
                   {link.label}
-                </Link>
+                </ScrollLink>
               ))}
             </div>
 
             {/* Desktop CTAs */}
             <div className="hidden lg:flex items-center gap-3">
-              <Button variant="ghost" size="sm" asChild>
-                <Link href="/login">Login</Link>
+              <Button variant="ghost" size="sm" className="text-white/80 hover:text-white hover:bg-white/10" asChild>
+                <ScrollLink href="/login">Login</ScrollLink>
               </Button>
-              <Button size="sm" className="gradient-primary text-ink font-semibold" asChild>
-                <Link href="/signup">Start Free Trial</Link>
+              <Button
+                size="sm"
+                className="gradient-primary text-ink font-semibold relative overflow-hidden group"
+                asChild
+              >
+                <ScrollLink href="/contact">
+                  <span className="relative z-10">Start Free Trial</span>
+                  <div className="absolute inset-0 animate-shimmer opacity-0 group-hover:opacity-100 transition-opacity" />
+                </ScrollLink>
               </Button>
             </div>
 
             {/* Mobile Menu Button */}
-            <button className="lg:hidden p-2 text-foreground" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            <button
+              className="lg:hidden p-2 text-white rounded-lg hover:bg-white/10 transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden glass-dark mt-2 mx-4 rounded-2xl p-6">
-            <div className="flex flex-col gap-4">
+        <div
+          className={cn(
+            "lg:hidden overflow-hidden transition-all duration-300 ease-out",
+            isMobileMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0",
+          )}
+        >
+          <div className="glass-dark mx-4 mt-4 rounded-2xl p-6 border border-white/10">
+            <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
-                <Link
+                <ScrollLink
                   key={link.href}
                   href={link.href}
-                  className="text-foreground py-2 text-lg font-medium"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-white/90 py-3 text-base font-medium text-left px-4 rounded-xl hover:bg-white/5 transition-colors"
+                  onClick={closeMobileMenu}
                 >
                   {link.label}
-                </Link>
+                </ScrollLink>
               ))}
-              <hr className="border-border/50 my-2" />
-              <Button variant="ghost" className="justify-start" asChild>
-                <Link href="/login">Login</Link>
+              <hr className="border-white/10 my-3" />
+              <Button
+                variant="ghost"
+                className="justify-start text-white/80 hover:text-white hover:bg-white/10"
+                asChild
+              >
+                <ScrollLink href="/login" onClick={closeMobileMenu}>
+                  Login
+                </ScrollLink>
               </Button>
-              <Button className="gradient-primary text-ink font-semibold" asChild>
-                <Link href="/signup">Start Free Trial</Link>
+              <Button className="gradient-primary text-ink font-semibold mt-2" asChild>
+                <ScrollLink href="/contact" onClick={closeMobileMenu}>
+                  Start Free Trial
+                </ScrollLink>
               </Button>
             </div>
           </div>
-        )}
+        </div>
       </nav>
 
-      {/* Floating Demo Button */}
       <div className="fixed bottom-6 right-6 z-50">
         <Button
           size="lg"
-          className="gradient-primary text-ink font-semibold rounded-full shadow-lg hover:shadow-xl transition-all gap-2"
+          className="gradient-primary text-ink font-semibold rounded-full shadow-2xl hover:shadow-primary/30 transition-all duration-300 gap-2 group animate-glow-pulse"
           asChild
         >
-          <Link href="/demo">
-            <Phone className="w-4 h-4" />
+          <ScrollLink href="/contact" className="flex items-center gap-2">
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-ink/40 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-ink/60"></span>
+            </span>
             Book Live Demo
-          </Link>
+          </ScrollLink>
         </Button>
       </div>
     </>
