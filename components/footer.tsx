@@ -111,45 +111,98 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Legal */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Contact</h4>
+            <h4 className="font-semibold text-foreground mb-4">Legal</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-primary" />
-                <a href="mailto:hello@salonai.app" className="hover:text-primary transition-colors">
-                  hello@salonai.app
-                </a>
+              <li>
+                <ScrollLink href="/terms" className="hover:text-primary transition-colors">
+                  Terms & Conditions
+                </ScrollLink>
               </li>
-              <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-primary" />
-                <span>+91 98765 43210</span>
+              <li>
+                <ScrollLink href="/privacy" className="hover:text-primary transition-colors">
+                  Privacy Policy
+                </ScrollLink>
               </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-primary mt-0.5" />
-                <span>Bangalore, India</span>
+              <li>
+                <ScrollLink href="/refund" className="hover:text-primary transition-colors">
+                  Refund Policy
+                </ScrollLink>
+              </li>
+              <li>
+                <ScrollLink href="/disclaimer" className="hover:text-primary transition-colors">
+                  Disclaimer
+                </ScrollLink>
               </li>
             </ul>
           </div>
         </div>
 
+        {/* Contact Row */}
+        <div className="mt-12 pt-8 border-t border-border/30">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <Mail className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground">Email us</p>
+                <a
+                  href="mailto:inesh2010nj@gmail.com"
+                  className="text-sm text-foreground hover:text-primary transition-colors"
+                >
+                  inesh2010nj@gmail.com
+                </a>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <Phone className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground">Call us</p>
+                <a href="tel:+918939744434" className="text-sm text-foreground hover:text-primary transition-colors">
+                  +91-8939744434
+                </a>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <MapPin className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground">Location</p>
+                <span className="text-sm text-foreground">Bangalore, India</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-border/30 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
+        <div className="mt-12 pt-8 border-t border-border/30 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-2 text-xs text-muted-foreground">
             <span>© 2025 SalonAI VoiceEngine. All rights reserved.</span>
+            <span className="hidden md:inline">•</span>
             <ScrollLink href="/privacy" className="hover:text-primary transition-colors">
-              Privacy Policy
+              Privacy
             </ScrollLink>
             <ScrollLink href="/terms" className="hover:text-primary transition-colors">
-              Terms of Service
+              Terms
+            </ScrollLink>
+            <ScrollLink href="/refund" className="hover:text-primary transition-colors">
+              Refunds
+            </ScrollLink>
+            <ScrollLink href="/disclaimer" className="hover:text-primary transition-colors">
+              Disclaimer
             </ScrollLink>
           </div>
           <div className="flex items-center gap-3">
             <span className="text-xs text-muted-foreground">Powered by</span>
             <div className="flex items-center gap-2 text-xs">
-              <span className="px-2 py-1 rounded bg-secondary/50 text-secondary-foreground">Twilio</span>
-              <span className="px-2 py-1 rounded bg-secondary/50 text-secondary-foreground">WhatsApp Cloud API</span>
-              <span className="px-2 py-1 rounded bg-secondary/50 text-secondary-foreground">Razorpay</span>
+              <span className="px-2 py-1 rounded bg-muted/50 text-muted-foreground">Twilio</span>
+              <span className="px-2 py-1 rounded bg-muted/50 text-muted-foreground">WhatsApp</span>
+              <span className="px-2 py-1 rounded bg-muted/50 text-muted-foreground">Razorpay</span>
             </div>
           </div>
         </div>

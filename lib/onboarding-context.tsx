@@ -1,21 +1,24 @@
 "use client"
 
-import { createContext, useContext, useState, type ReactNode } from "react"
+import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
 
 export interface Service {
   id: string
   name: string
-  duration: number
+  duration: number // in minutes - VERY IMPORTANT for booking
   price: number
   category: string
+  gender?: "unisex" | "female" | "male"
+  staffSkillRequired?: string // e.g., "junior", "senior", "therapist"
 }
 
 export interface StaffMember {
   id: string
   name: string
   role: string
-  services: string[]
-  workingDays: number[]
+  skills: string[] // services they can perform
+  maxSimultaneousCustomers?: number
+  workingDays: number[] // 0-6 (Sun-Sat)
   startTime: string
   endTime: string
 }
@@ -26,6 +29,14 @@ export interface BusinessHours {
   isOpen: boolean
   openTime: string
   closeTime: string
+  breakStart?: string
+  breakEnd?: string
+}
+
+export interface Holiday {
+  id: string
+  date: string
+  name: string
 }
 
 export interface BusinessRule {
@@ -34,30 +45,50 @@ export interface BusinessRule {
   enabled: boolean
 }
 
-export interface OnboardingData {
-  // Step 1: Services & Prices
-  services: Service[]
+export interface WhatsAppConfig {
+  hasExistingSetup: boolean
+  whatsappBusinessNumber: string
+  whatsappBusinessId: string
+  whatsappPhoneNumberId: string
+  whatsappApiToken: string
+  isConnected: boolean
+}
 
-  // Step 2: Staff & Timing
+export interface OnboardingData {
+  // Step 1: Business Type
+  businessType: "salon" | "spa" | "clinic" | "other" | null
+
+  // Step 2: Owner / Business Details
+  ownerName: string
+  businessName: string
+  businessEmail: string
+  primaryPhone: string // This is the client's main number customers call
+  city: string
+  area: string
+
+  // Step 3: Business Hours & Staff
+  businessHours: BusinessHours[]
+  holidays: Holiday[]
   staff: StaffMember[]
 
-  // Step 3: Business Hours & Holidays
-  businessHours: BusinessHours[]
-  holidays: string[]
+  // Step 4: Service Menu
+  services: Service[]
 
-  // Step 4: Rules
-  rules: BusinessRule[]
-  customRules: string[]
+  // Step 5: AI Script & Personality
+  aiTone: "friendly" | "luxury" | "professional" | "casual" | "hyper-energetic"
+  aiGreeting: string
+  businessRules: string[]
+  faqOverrides: { question: string; answer: string }[]
+  walkInPolicy: string
+  cancellationPolicy: string
+  parkingInfo: string
 
-  // Step 5: Tone & Personality
-  tone: "professional" | "friendly" | "luxury" | "casual"
-  personality: {
-    greeting: string
-    farewell: string
-    handling: string
-  }
-  brandVoice: string
-  faqs: { question: string; answer: string }[]
+  // Step 6: WhatsApp Business Cloud API
+  whatsappConfig: WhatsAppConfig
+
+  // Meta
+  onboardingStep: number
+  isComplete: boolean
 }
 
 interface OnboardingContextType {
@@ -66,6 +97,7 @@ interface OnboardingContextType {
   setCurrentStep: (step: number) => void
   updateData: (updates: Partial<OnboardingData>) => void
   resetData: () => void
+  saveToStorage: () => void
 }
 
 const defaultBusinessHours: BusinessHours[] = [
@@ -78,29 +110,48 @@ const defaultBusinessHours: BusinessHours[] = [
   { day: 6, dayName: "Saturday", isOpen: true, openTime: "10:00", closeTime: "16:00" },
 ]
 
-const defaultRules: BusinessRule[] = [
-  { id: "1", rule: "Require 24-hour advance booking", enabled: true },
-  { id: "2", rule: "Allow same-day cancellations", enabled: false },
-  { id: "3", rule: "Send reminder 2 hours before appointment", enabled: true },
-  { id: "4", rule: "Auto-assign staff based on availability", enabled: true },
-  { id: "5", rule: "Block back-to-back appointments for complex services", enabled: true },
-]
-
 const defaultData: OnboardingData = {
-  services: [],
-  staff: [],
+  // Step 1
+  businessType: null,
+
+  // Step 2
+  ownerName: "",
+  businessName: "",
+  businessEmail: "",
+  primaryPhone: "",
+  city: "",
+  area: "",
+
+  // Step 3
   businessHours: defaultBusinessHours,
   holidays: [],
-  rules: defaultRules,
-  customRules: [],
-  tone: "friendly",
-  personality: {
-    greeting: "warm",
-    farewell: "friendly",
-    handling: "empathetic",
+  staff: [],
+
+  // Step 4
+  services: [],
+
+  // Step 5
+  aiTone: "friendly",
+  aiGreeting: "",
+  businessRules: [],
+  faqOverrides: [],
+  walkInPolicy: "",
+  cancellationPolicy: "",
+  parkingInfo: "",
+
+  // Step 6
+  whatsappConfig: {
+    hasExistingSetup: false,
+    whatsappBusinessNumber: "",
+    whatsappBusinessId: "",
+    whatsappPhoneNumberId: "",
+    whatsappApiToken: "",
+    isConnected: false,
   },
-  brandVoice: "",
-  faqs: [],
+
+  // Meta
+  onboardingStep: 1,
+  isComplete: false,
 }
 
 const OnboardingContext = createContext<OnboardingContextType | undefined>(undefined)
@@ -109,17 +160,52 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
   const [data, setData] = useState<OnboardingData>(defaultData)
   const [currentStep, setCurrentStep] = useState(1)
 
+  // Load from localStorage on mount
+  useEffect(() => {
+    const stored = localStorage.getItem("salonai_onboarding")
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored)
+        setData({ ...defaultData, ...parsed })
+        setCurrentStep(parsed.onboardingStep || 1)
+      } catch (e) {
+        console.error("Failed to parse onboarding data", e)
+      }
+    }
+  }, [])
+
   const updateData = (updates: Partial<OnboardingData>) => {
-    setData((prev) => ({ ...prev, ...updates }))
+    setData((prev) => {
+      const newData = { ...prev, ...updates }
+      localStorage.setItem("salonai_onboarding", JSON.stringify(newData))
+      return newData
+    })
+  }
+
+  const saveToStorage = () => {
+    localStorage.setItem("salonai_onboarding", JSON.stringify({ ...data, onboardingStep: currentStep }))
   }
 
   const resetData = () => {
     setData(defaultData)
     setCurrentStep(1)
+    localStorage.removeItem("salonai_onboarding")
   }
 
   return (
-    <OnboardingContext.Provider value={{ data, currentStep, setCurrentStep, updateData, resetData }}>
+    <OnboardingContext.Provider
+      value={{
+        data,
+        currentStep,
+        setCurrentStep: (step) => {
+          setCurrentStep(step)
+          updateData({ onboardingStep: step })
+        },
+        updateData,
+        resetData,
+        saveToStorage,
+      }}
+    >
       {children}
     </OnboardingContext.Provider>
   )

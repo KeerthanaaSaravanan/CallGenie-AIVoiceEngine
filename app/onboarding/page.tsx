@@ -12,30 +12,33 @@ import {
   ArrowLeft,
   ArrowRight,
   Check,
-  Scissors,
-  Users,
+  Building2,
+  User,
   Clock,
-  ShieldCheck,
+  Scissors,
   MessageSquare,
+  Phone,
 } from "lucide-react"
+import { BusinessTypeStep } from "@/components/onboarding/business-type-step"
+import { OwnerDetailsStep } from "@/components/onboarding/owner-details-step"
+import { OperationsStep } from "@/components/onboarding/operations-step"
 import { ServicesStep } from "@/components/onboarding/services-step"
-import { StaffStep } from "@/components/onboarding/staff-step"
-import { HoursStep } from "@/components/onboarding/hours-step"
-import { RulesStep } from "@/components/onboarding/rules-step"
-import { ToneStep } from "@/components/onboarding/tone-step"
+import { AiPersonalityStep } from "@/components/onboarding/ai-personality-step"
+import { WhatsappSetupStep } from "@/components/onboarding/whatsapp-setup-step"
 
 const steps = [
-  { id: 1, title: "Services & Prices", icon: Scissors, description: "Add your services and pricing" },
-  { id: 2, title: "Staff & Timing", icon: Users, description: "Set up your team" },
-  { id: 3, title: "Business Hours", icon: Clock, description: "Configure your schedule" },
-  { id: 4, title: "Rules", icon: ShieldCheck, description: "Set booking rules" },
-  { id: 5, title: "Tone & Voice", icon: MessageSquare, description: "Personalize your AI" },
+  { id: 1, title: "Business Type", icon: Building2, description: "Select your business category" },
+  { id: 2, title: "Business Details", icon: User, description: "Owner & contact information" },
+  { id: 3, title: "Operations", icon: Clock, description: "Hours, staff & availability" },
+  { id: 4, title: "Service Menu", icon: Scissors, description: "Services, durations & pricing" },
+  { id: 5, title: "AI Personality", icon: MessageSquare, description: "Customize your AI receptionist" },
+  { id: 6, title: "WhatsApp Setup", icon: Phone, description: "Connect WhatsApp Business API" },
 ]
 
 export default function OnboardingPage() {
   const router = useRouter()
   const { user, updateUser, isLoading } = useAuth()
-  const { currentStep, setCurrentStep, data } = useOnboarding()
+  const { currentStep, setCurrentStep, data, updateData } = useOnboarding()
 
   useEffect(() => {
     if (!isLoading && !user) {
@@ -66,22 +69,40 @@ export default function OnboardingPage() {
   }
 
   const handleComplete = () => {
-    updateUser({ onboardingComplete: true })
+    // Set trial dates and complete onboarding
+    const now = new Date()
+    const trialEnd = new Date(now.getTime() + 15 * 24 * 60 * 60 * 1000) // 15 days
+
+    updateData({
+      isComplete: true,
+      onboardingStep: steps.length,
+    })
+
+    updateUser({
+      onboardingComplete: true,
+      subscriptionStatus: "trial",
+      trialStartDate: now.toISOString(),
+      trialEndDate: trialEnd.toISOString(),
+      aiEnabled: true,
+    })
+
     router.push("/dashboard")
   }
 
   const canProceed = () => {
     switch (currentStep) {
       case 1:
-        return data.services.length > 0
+        return data.businessType !== null
       case 2:
-        return data.staff.length > 0
+        return data.ownerName && data.businessName && data.businessEmail && data.primaryPhone && data.city
       case 3:
-        return data.businessHours.some((h) => h.isOpen)
+        return data.businessHours.some((h) => h.isOpen) && data.staff.length > 0
       case 4:
-        return true
+        return data.services.length > 0
       case 5:
-        return data.tone !== undefined
+        return data.aiTone && data.aiGreeting
+      case 6:
+        return true // WhatsApp is optional
       default:
         return false
     }
@@ -195,11 +216,12 @@ export default function OnboardingPage() {
 
               {/* Step Content */}
               <div className="min-h-[400px]">
-                {currentStep === 1 && <ServicesStep />}
-                {currentStep === 2 && <StaffStep />}
-                {currentStep === 3 && <HoursStep />}
-                {currentStep === 4 && <RulesStep />}
-                {currentStep === 5 && <ToneStep />}
+                {currentStep === 1 && <BusinessTypeStep />}
+                {currentStep === 2 && <OwnerDetailsStep />}
+                {currentStep === 3 && <OperationsStep />}
+                {currentStep === 4 && <ServicesStep />}
+                {currentStep === 5 && <AiPersonalityStep />}
+                {currentStep === 6 && <WhatsappSetupStep />}
               </div>
 
               {/* Navigation */}
@@ -217,7 +239,6 @@ export default function OnboardingPage() {
                 {currentStep === steps.length ? (
                   <Button
                     onClick={handleComplete}
-                    disabled={!canProceed()}
                     className="gradient-primary text-ink font-semibold gap-2 relative overflow-hidden group"
                   >
                     <span className="relative z-10 flex items-center gap-2">
