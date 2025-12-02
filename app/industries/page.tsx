@@ -11,7 +11,7 @@ const industries = [
     name: "Salons & Hair Studios",
     tagline: "Never miss a booking during a haircut again",
     description:
-      "From solo stylists to multi-chair salons, SalonAI VoiceEngine handles appointment requests while you focus on your craft.",
+      "From solo stylists to multi-chair salons, CallGenie AI VoiceEngine handles appointment requests while you focus on your craft.",
     painPoints: [
       "Stylists can't answer phones mid-cut",
       "Walk-ins disrupt scheduled clients",

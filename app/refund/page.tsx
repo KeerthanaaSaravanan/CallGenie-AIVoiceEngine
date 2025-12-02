@@ -2,8 +2,8 @@ import type { Metadata } from "next"
 import { CreditCard, CheckCircle, XCircle, Clock, AlertCircle, Phone, Mail, RefreshCcw } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Refund Policy | SalonAI VoiceEngine",
-  description: "Understand our refund and cancellation policy for SalonAI VoiceEngine subscriptions.",
+  title: "Refund Policy | CallGenie AI VoiceEngine",
+  description: "Understand our refund and cancellation policy for CallGenie AI VoiceEngine subscriptions.",
 }
 
 export default function RefundPage() {
@@ -31,7 +31,7 @@ export default function RefundPage() {
               {/* Introduction */}
               <div className="space-y-4">
                 <p className="text-foreground/90 leading-relaxed">
-                  Thank you for choosing SalonAI VoiceEngine. This Refund & Return Policy explains our policies
+                  Thank you for choosing CallGenie AI VoiceEngine. This Refund & Return Policy explains our policies
                   regarding subscription refunds, cancellations, and billing disputes. As a Software-as-a-Service (SaaS)
                   product, we do not have physical goods to return.
                 </p>
@@ -45,7 +45,7 @@ export default function RefundPage() {
                 </h2>
                 <div className="pl-9 space-y-3 text-foreground/80 leading-relaxed">
                   <p>
-                    SalonAI VoiceEngine is a subscription-based SaaS platform. Our refund policy is designed to be fair
+                    CallGenie AI VoiceEngine is a subscription-based SaaS platform. Our refund policy is designed to be fair
                     to both our customers and our business:
                   </p>
                   <ul className="list-disc pl-6 space-y-2">
@@ -273,7 +273,7 @@ export default function RefundPage() {
                 <div className="pl-9 space-y-3 text-foreground/80 leading-relaxed">
                   <p>To cancel your subscription:</p>
                   <ol className="list-decimal pl-6 space-y-2">
-                    <li>Log in to your SalonAI VoiceEngine dashboard</li>
+                    <li>Log in to your CallGenie AI VoiceEngine dashboard</li>
                     <li>Navigate to Settings → Billing</li>
                     <li>Click "Cancel Subscription"</li>
                     <li>Confirm cancellation</li>

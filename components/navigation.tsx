@@ -45,8 +45,8 @@ export function Navigation() {
                 <div className="absolute inset-0 animate-shimmer" />
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-white text-lg leading-tight tracking-tight">SalonAI</span>
-                <span className="text-xs text-primary font-medium -mt-0.5 tracking-wide">VoiceEngine</span>
+                <span className="font-bold text-white text-lg leading-tight tracking-tight">CallGenie</span>
+                <span className="text-xs text-primary font-medium -mt-0.5 tracking-wide">AIVoiceEngine</span>
               </div>
             </ScrollLink>
 

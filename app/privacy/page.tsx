@@ -2,8 +2,8 @@ import type { Metadata } from "next"
 import { Shield, Database, Lock, Eye, Clock, Users, Globe, Phone, Mail, AlertCircle } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | SalonAI VoiceEngine",
-  description: "Learn how SalonAI VoiceEngine collects, uses, and protects your data.",
+  title: "Privacy Policy | CallGenie AI VoiceEngine",
+  description: "Learn how CallGenie AI VoiceEngine collects, uses, and protects your data.",
 }
 
 export default function PrivacyPage() {
@@ -31,12 +31,12 @@ export default function PrivacyPage() {
               {/* Introduction */}
               <div className="space-y-4">
                 <p className="text-foreground/90 leading-relaxed">
-                  At SalonAI VoiceEngine ("we", "us", or "our"), we are committed to protecting your privacy and the
+                  At CallGenie AI VoiceEngine ("we", "us", or "our"), we are committed to protecting your privacy and the
                   privacy of your customers. This Privacy Policy explains how we collect, use, store, and protect
                   information when you use our AI receptionist platform.
                 </p>
                 <p className="text-foreground/90 leading-relaxed">
-                  By using SalonAI VoiceEngine, you agree to the collection and use of information in accordance with
+                  By using CallGenie AI VoiceEngine, you agree to the collection and use of information in accordance with
                   this policy.
                 </p>
               </div>
@@ -237,7 +237,7 @@ export default function PrivacyPage() {
                   <p>We share data with the following third parties to provide our Service:</p>
                   <div className="space-y-4 mt-4">
                     <div className="p-4 bg-muted/30 rounded-xl">
-                      <h4 className="font-medium text-foreground mb-2">Telephony Providers (Twilio/Exotel)</h4>
+                      <h4 className="font-medium text-foreground mb-2">Telephony Providers (Exotel)</h4>
                       <p className="text-sm">
                         Call routing, call recordings, and phone number management. They process caller phone numbers
                         and call audio.

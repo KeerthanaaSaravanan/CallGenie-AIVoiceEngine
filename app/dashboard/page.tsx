@@ -125,8 +125,8 @@ export default function DashboardPage() {
                 <Sparkles className="w-5 h-5 text-ink" />
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-white text-lg leading-tight">SalonAI</span>
-                <span className="text-xs text-primary font-medium -mt-0.5">VoiceEngine</span>
+                <span className="font-bold text-white text-lg leading-tight">CallGenie</span>
+                <span className="text-xs text-primary font-medium -mt-0.5">AI VoiceEngine</span>
               </div>
             </Link>
 
@@ -475,7 +475,7 @@ export default function DashboardPage() {
             </div>
 
             <div>
-              <h4 className="text-white font-medium mb-3">Your SalonAI Number</h4>
+              <h4 className="text-white font-medium mb-3">Your AIReceptionist Number</h4>
               <div className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10">
                 <Phone className="w-5 h-5 text-primary" />
                 <span className="text-white font-mono text-lg">{exotelNumber}</span>

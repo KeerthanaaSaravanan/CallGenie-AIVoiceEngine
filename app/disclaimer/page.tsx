@@ -2,8 +2,8 @@ import type { Metadata } from "next"
 import { AlertTriangle, Shield, Server, Brain, Scale, FileWarning, Phone, Mail } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Disclaimer | SalonAI VoiceEngine",
-  description: "Legal disclaimer for SalonAI VoiceEngine AI receptionist services.",
+  title: "Disclaimer | CallGenie",
+  description: "Legal disclaimer for CallGenie VoiceEngine AI receptionist services.",
 }
 
 export default function DisclaimerPage() {
@@ -31,7 +31,7 @@ export default function DisclaimerPage() {
               {/* Introduction */}
               <div className="space-y-4">
                 <p className="text-foreground/90 leading-relaxed">
-                  This Legal Disclaimer governs your use of SalonAI VoiceEngine ("Service", "Platform", "we", "us", or
+                  This Legal Disclaimer governs your use of CallGenie AIVoiceEngine ("Service", "Platform", "we", "us", or
                   "our"). By accessing or using our AI receptionist platform, you acknowledge that you have read,
                   understood, and agree to be bound by this Disclaimer.
                 </p>
@@ -54,7 +54,7 @@ export default function DisclaimerPage() {
                 </h2>
                 <div className="pl-9 space-y-3 text-foreground/80 leading-relaxed">
                   <p>
-                    SalonAI VoiceEngine uses artificial intelligence and machine learning to handle phone calls,
+                    CallGenie AIVoiceEngine uses artificial intelligence and machine learning to handle phone calls,
                     WhatsApp messages, and appointment bookings. While we strive for high accuracy:
                   </p>
                   <ul className="list-disc pl-6 space-y-2">
@@ -163,7 +163,7 @@ export default function DisclaimerPage() {
                 </h2>
                 <div className="pl-9 space-y-3 text-foreground/80 leading-relaxed">
                   <p>
-                    SalonAI VoiceEngine is a booking and communication tool. It does <strong>not</strong> provide and
+                    CallGenie AIVoiceEngine is a booking and communication tool. It does <strong>not</strong> provide and
                     should
                     <strong>not</strong> be relied upon for:
                   </p>
@@ -230,7 +230,7 @@ export default function DisclaimerPage() {
                   <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW:</p>
                   <ul className="list-disc pl-6 space-y-2">
                     <li>
-                      SalonAI VoiceEngine shall not be liable for any indirect, incidental, special, consequential, or
+                      CallGenie AIVoiceEngine shall not be liable for any indirect, incidental, special, consequential, or
                       punitive damages
                     </li>
                     <li>We shall not be liable for lost profits, lost revenue, lost data, or business interruption</li>
@@ -262,7 +262,7 @@ export default function DisclaimerPage() {
                 </h2>
                 <div className="pl-9 space-y-3 text-foreground/80 leading-relaxed">
                   <p>
-                    You agree to indemnify, defend, and hold harmless SalonAI VoiceEngine and its officers, directors,
+                    You agree to indemnify, defend, and hold harmless CallGenie AIVoiceEngine and its officers, directors,
                     employees, and agents from and against any claims, liabilities, damages, losses, and expenses
                     (including reasonable legal fees) arising from:
                   </p>

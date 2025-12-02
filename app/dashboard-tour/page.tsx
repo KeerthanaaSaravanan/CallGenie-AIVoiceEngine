@@ -792,7 +792,7 @@ export default function DashboardTourPage() {
               <div className="glass-dark rounded-xl p-6 space-y-4">
                 {[
                   { name: "AI Receptionist", status: "Active", statusColor: "primary" },
-                  { name: "Twilio Calls", status: "Connected", statusColor: "primary" },
+                  { name: "Exotel Calls", status: "Connected", statusColor: "primary" },
                   { name: "WhatsApp API", status: "Connected", statusColor: "primary" },
                   { name: "Calendar Sync", status: "Active", statusColor: "primary" },
                 ].map((item, i) => (

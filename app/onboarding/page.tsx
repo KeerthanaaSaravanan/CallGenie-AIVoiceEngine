@@ -120,8 +120,8 @@ export default function OnboardingPage() {
                 <Sparkles className="w-5 h-5 text-ink" />
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-white text-lg leading-tight">SalonAI</span>
-                <span className="text-xs text-primary font-medium -mt-0.5">VoiceEngine</span>
+                <span className="font-bold text-white text-lg leading-tight">CallGenie</span>
+                <span className="text-xs text-primary font-medium -mt-0.5">AI VoiceEngine</span>
               </div>
             </Link>
 

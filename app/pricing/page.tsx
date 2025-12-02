@@ -85,9 +85,9 @@ const faqs = [
       "Yes, you can cancel your subscription anytime. There are no long-term contracts or cancellation fees. Your data will be preserved for 30 days after cancellation in case you want to reactivate.",
   },
   {
-    question: "Do I need my own Twilio or WhatsApp account?",
+    question: "Do I need my own Exotel or WhatsApp account?",
     answer:
-      "We handle the Twilio integration for you — just connect your existing number or get a new one. For WhatsApp, you can either connect your WhatsApp Business Cloud API or use our system number for quick setup.",
+      "We handle the Exotel integration for you — just connect your existing number or get a new one. For WhatsApp, you can either connect your WhatsApp Business Cloud API or use our system number for quick setup.",
   },
   {
     question: "Is there any setup fee?",

@@ -13,8 +13,8 @@ export function Footer() {
                 <Sparkles className="w-5 h-5 text-ink" />
               </div>
               <div className="flex flex-col">
-                <span className="font-semibold text-foreground text-lg leading-tight">SalonAI</span>
-                <span className="text-xs text-primary font-medium -mt-0.5">VoiceEngine</span>
+                <span className="font-semibold text-foreground text-lg leading-tight">CallGenie</span>
+                <span className="text-xs text-primary font-medium -mt-0.5">AIVoiceEngine</span>
               </div>
             </ScrollLink>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs mb-6">
@@ -173,7 +173,7 @@ export function Footer() {
               </div>
               <div>
                 <p className="text-xs text-muted-foreground">Location</p>
-                <span className="text-sm text-foreground">Bangalore, India</span>
+                <span className="text-sm text-foreground">Chennai, India</span>
               </div>
             </div>
           </div>
@@ -182,7 +182,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-border/30 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-2 text-xs text-muted-foreground">
-            <span>© 2025 SalonAI VoiceEngine. All rights reserved.</span>
+            <span>© 2025 CallGenie AIVoiceEngine. All rights reserved.</span>
             <span className="hidden md:inline">•</span>
             <ScrollLink href="/privacy" className="hover:text-primary transition-colors">
               Privacy
@@ -200,7 +200,7 @@ export function Footer() {
           <div className="flex items-center gap-3">
             <span className="text-xs text-muted-foreground">Powered by</span>
             <div className="flex items-center gap-2 text-xs">
-              <span className="px-2 py-1 rounded bg-muted/50 text-muted-foreground">Twilio</span>
+              <span className="px-2 py-1 rounded bg-muted/50 text-muted-foreground">Exotel</span>
               <span className="px-2 py-1 rounded bg-muted/50 text-muted-foreground">WhatsApp</span>
               <span className="px-2 py-1 rounded bg-muted/50 text-muted-foreground">Razorpay</span>
             </div>

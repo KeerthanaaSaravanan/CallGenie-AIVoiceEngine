@@ -28,12 +28,12 @@ const faqCategories = [
     name: "Setup & Onboarding",
     faqs: [
       {
-        question: "How long does it take to set up SalonAI VoiceEngine?",
+        question: "How long does it take to set up CallGenie AI VoiceEngine?",
         answer:
           "Most businesses complete the setup in under 5 minutes. Our onboarding wizard guides you through entering your services, prices, staff, business hours, and tone preferences. Once done, your AI receptionist is immediately active.",
       },
       {
-        question: "Do I need any technical knowledge to use SalonAI VoiceEngine?",
+        question: "Do I need any technical knowledge to use CallGenie AI VoiceEngine?",
         answer:
           "Not at all. Our platform is designed for non-technical business owners. Everything is done through a simple, visual interface. If you can use WhatsApp, you can set up and manage your AI receptionist.",
       },
@@ -52,17 +52,17 @@ const faqCategories = [
   {
     id: "calls",
     icon: Phone,
-    name: "Calls & Twilio",
+    name: "Calls & Exotel",
     faqs: [
       {
         question: "How does the call integration work?",
         answer:
-          "We use Twilio's enterprise-grade infrastructure to route your calls. Customers call your business number, and if you're busy or unavailable, the AI answers. You can set up forwarding rules, fallback numbers, and specific routing schedules.",
+          "We use Exotel's enterprise-grade infrastructure to route your calls. Customers call your business number, and if you're busy or unavailable, the AI answers. You can set up forwarding rules, fallback numbers, and specific routing schedules.",
       },
       {
         question: "Can I keep my existing phone number?",
         answer:
-          "Yes! You can port your existing number to Twilio or set up call forwarding from your current provider. We'll guide you through the process during setup.",
+          "Yes! You can port your existing number to Exotel or set up call forwarding from your current provider. We'll guide you through the process during setup.",
       },
       {
         question: "What happens if the AI can't handle a call?",
@@ -173,7 +173,7 @@ const gettingStartedSteps = [
   {
     step: 3,
     title: "Connect Your Channels",
-    description: "Set up Twilio call routing and connect WhatsApp Business.",
+    description: "Set up Exotel call routing and connect WhatsApp Business.",
   },
   {
     step: 4,
@@ -225,7 +225,7 @@ export default function ResourcesPage() {
           <span className="text-sm font-medium text-primary mb-4 block">Resources</span>
           <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">Help Center & FAQ</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Everything you need to know about SalonAI VoiceEngine. Can't find what you're looking for? Contact our
+            Everything you need to know about CallGenie AI VoiceEngine. Can't find what you're looking for? Contact our
             support team.
           </p>
 
@@ -337,7 +337,7 @@ export default function ResourcesPage() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
-            <p className="text-muted-foreground">Find answers to common questions about SalonAI VoiceEngine</p>
+            <p className="text-muted-foreground">Find answers to common questions about CallGenie AI VoiceEngine</p>
           </div>
 
           <div className="max-w-5xl mx-auto">
@@ -416,8 +416,8 @@ export default function ResourcesPage() {
                 <p className="text-muted-foreground text-sm mb-4">
                   Send us a message and we'll respond within 24 hours
                 </p>
-                <a href="mailto:support@salonai.in" className="text-primary hover:underline">
-                  support@salonai.in
+                <a href="mailto:inesh2010nj@gmail.com" className="text-primary hover:underline">
+                  inesh2010nj@gmail.com
                 </a>
               </div>
 

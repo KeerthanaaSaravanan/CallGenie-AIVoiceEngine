@@ -35,7 +35,7 @@ export default function HowItWorksPage() {
             From Signup to Fully Autonomous
           </h1>
           <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-            See exactly how SalonAI VoiceEngine transforms your business communication in just a few steps.
+            See exactly how CallGenie AI VoiceEngine transforms your business communication in just a few steps.
           </p>
         </div>
       </section>
@@ -303,7 +303,7 @@ export default function HowItWorksPage() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <Link2 className="w-4 h-4 text-primary" />
-                      <span className="text-sm text-foreground">Twilio Connection</span>
+                      <span className="text-sm text-foreground">Exotel Connection</span>
                     </div>
                     <span className="px-2 py-0.5 rounded-full bg-primary/20 text-primary text-xs">Connected</span>
                   </div>
@@ -318,7 +318,7 @@ export default function HowItWorksPage() {
       <section className="py-20 lg:py-24 bg-ink border-b border-border/30">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
-            {/* Twilio Integration */}
+            {/* Exotel Integration */}
             <div>
               <div className="inline-flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-full gradient-primary flex items-center justify-center">
@@ -326,7 +326,7 @@ export default function HowItWorksPage() {
                 </div>
                 <span className="text-sm font-medium text-primary">Step 4</span>
               </div>
-              <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-4">Twilio Call Integration</h2>
+              <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-4">Exotel Call Integration</h2>
               <p className="text-muted-foreground mb-8">
                 Connect your phone number to enable AI-powered call handling. One-click setup.
               </p>
@@ -345,7 +345,7 @@ export default function HowItWorksPage() {
                     <div className="w-16 h-16 rounded-full bg-[#F22F46]/20 flex items-center justify-center mx-auto mb-2">
                       <Phone className="w-8 h-8 text-[#F22F46]" />
                     </div>
-                    <span className="text-xs text-muted-foreground">Twilio</span>
+                    <span className="text-xs text-muted-foreground">Exotel</span>
                   </div>
                   <ArrowRight className="w-6 h-6 text-primary" />
                   <div className="text-center">
@@ -628,7 +628,7 @@ export default function HowItWorksPage() {
           </div>
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">Ready to Get Started?</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join hundreds of salons, spas, and clinics already using SalonAI VoiceEngine to handle their customer
+            Join hundreds of salons, spas, and clinics already using CallGenie AI VoiceEngine to handle their customer
             communications.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

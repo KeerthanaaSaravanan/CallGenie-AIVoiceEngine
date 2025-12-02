@@ -130,7 +130,7 @@ export default function ContactPage() {
             <span className="text-primary"> Book a 1:1 Demo.</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            See SalonAI VoiceEngine in action with a personalized walkthrough. Our team will show you exactly how it
+            See CallGenie in action with a personalized walkthrough. Our team will show you exactly how it
             works for your type of business.
           </p>
         </div>
@@ -395,7 +395,7 @@ export default function ContactPage() {
                     <div>
                       <p className="text-sm text-muted-foreground">Email</p>
                       <a href="mailto:hello@salonai.in" className="text-foreground hover:text-primary">
-                        hello@salonai.in
+                        inesh2010nj@gmail.com
                       </a>
                     </div>
                   </div>
